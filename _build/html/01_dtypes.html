@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Intro to Python &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Collections" href="02_collections.html" />
+    <link rel="prev" title="Data and Design with Python: LMTH 2080" href="syllabus.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="syllabus.html">
+   Data  and Design with Python: LMTH 2080
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_collections.html">
+   Collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-control_flow.html">
+   Conditional Statements
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01_dtypes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jfkoehler/dadbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jfkoehler/dadbook/issues/new?title=Issue%20on%20page%20%2F01_dtypes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jfkoehler/dadbook/master?urlpath=tree/01_dtypes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jfkoehler/dadbook/blob/master/01_dtypes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types">
+   Data Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparisons">
+   Comparisons
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problems">
+     PROBLEMS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variables">
+   Variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-methods">
+   String Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slicing-strings">
+   Slicing Strings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#problem-drake">
+     Problem: Drake
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="intro-to-python">
+<h1>Intro to Python<a class="headerlink" href="#intro-to-python" title="Permalink to this headline">¶</a></h1>
+<p>To use the code cells, we hold down the <code class="docutils literal notranslate"><span class="pre">shift</span></code> and <code class="docutils literal notranslate"><span class="pre">enter</span></code> key to execute code.  Right away, we can use Python as a calculator.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#addition (remember to hit shift + enter)</span>
+<span class="mi">2</span> <span class="o">+</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#subtraction</span>
+<span class="mi">5</span> <span class="o">-</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#multiplication</span>
+<span class="mi">4</span> <span class="o">*</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#division</span>
+<span class="mi">10</span><span class="o">/</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#exponents</span>
+<span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="data-types">
+<h2>Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<p>There are four main <em>datatypes</em> we will be concerned with.  To begin, we will use numbers, words, and the results of comparisons as the main defining characteristics.  Additionally, we will differentiate between two kinds of numbers, with and without decimals.  Specifically:</p>
+<ul class="simple">
+<li><p><strong>STRINGS</strong>: treated like text; words – we tell Python we are using a string by enclosing something in either single or double quotes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;this is a string; it might have a number in it 8&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;this is a string; it might have a number in it 8&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#shows us what kind of a &quot;thing&quot; we are working with</span>
+<span class="nb">type</span><span class="p">(</span><span class="s1">&#39;this is a string; it might have a number in it 8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>INT</strong>: Whole numbers.  We type a whole number without quotes around it and have an int.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>FLOAT</strong>: Decimal numbers.  Use the period for a decimal and still no quotes.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">12.3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">12.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>BOOL</strong>: determines the truthiness of something – True or False.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bool
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="comparisons">
+<h2>Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">¶</a></h2>
+<p>We can test whether or not things are the same, one thing is greater than another, or greater than or equal to (and less than as well).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code>: are two things equal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code>: are two things not equal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>: greater than</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>: less than</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>: greater than or equal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>: less than or equal</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">==</span> <span class="mf">4.0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span> <span class="o">!=</span> <span class="s1">&#39;steve&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problems">
+<h3>PROBLEMS<a class="headerlink" href="#problems" title="Permalink to this headline">¶</a></h3>
+<p>The reason these seemingly boring things matter is that depending on the kind of object you are working with, different things will be allowed.</p>
+<ol class="simple">
+<li><p>What happens when you add two strings?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;drake&#39;</span> <span class="o">+</span> <span class="s1">&#39;six_nine&#39;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>What happens when you add a string and an integer?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;drake&#39;</span> <span class="o">+</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>What happens when you add a number and a boolean?</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mf">8.3</span> <span class="o">+</span> <span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>Typically we will store things in variables.  For example, the variable <code class="docutils literal notranslate"><span class="pre">age</span></code> and the variable <code class="docutils literal notranslate"><span class="pre">name</span></code> represent two different data types, stored in variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Hennessy&#39;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">14</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">+</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; the dog&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hennessy the dog&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some rules apply for variable names.  We cannot start names with numbers, and we cannot have spaces in our variable names.  As another rule, we do not want to use any Python functions or objects as names for the variable either.</p>
+</div>
+<div class="section" id="string-methods">
+<h2>String Methods<a class="headerlink" href="#string-methods" title="Permalink to this headline">¶</a></h2>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">in_my_feelings</span></code> below contains a verse from Drake’s song <em>In My Feelings</em>.  It is a string, and with a longer string there are some methods we can use to manipulate the object.  To use these, the general pattern will be:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">variable</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_my_feelings</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Look, the new me is really still the real me</span>
+<span class="s1">I swear you gotta feel me before they try and kill me</span>
+<span class="s1">They gotta make some choices, they runnin&#39; out of options</span>
+<span class="s1">&#39;Cause I&#39;ve been goin&#39; off and they don&#39;t know when it&#39;s stoppin&#39;</span>
+<span class="s1">And when you get to toppin&#39;, I see that you&#39;ve been learnin&#39;</span>
+<span class="s1">And when you get to shoppin&#39;, you spend it like you earned it</span>
+<span class="s1">And when you popped off on your ex he deserved it</span>
+<span class="s1">I thought you were the one from the jump that confirmed it</span>
+<span class="s1">TrapMoneyBenny</span>
+<span class="s1">I buy you Champagne but you love some Henny</span>
+<span class="s1">From the block like you Jenny</span>
+<span class="s1">I know you special, girl, &#39;cause I know too many</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#make everything uppercase</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">in_my_feelings</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LOOK, THE NEW ME IS REALLY STILL THE REAL ME
+I SWEAR YOU GOTTA FEEL ME BEFORE THEY TRY AND KILL ME
+THEY GOTTA MAKE SOME CHOICES, THEY RUNNIN&#39; OUT OF OPTIONS
+&#39;CAUSE I&#39;VE BEEN GOIN&#39; OFF AND THEY DON&#39;T KNOW WHEN IT&#39;S STOPPIN&#39;
+AND WHEN YOU GET TO TOPPIN&#39;, I SEE THAT YOU&#39;VE BEEN LEARNIN&#39;
+AND WHEN YOU GET TO SHOPPIN&#39;, YOU SPEND IT LIKE YOU EARNED IT
+AND WHEN YOU POPPED OFF ON YOUR EX HE DESERVED IT
+I THOUGHT YOU WERE THE ONE FROM THE JUMP THAT CONFIRMED IT
+TRAPMONEYBENNY
+I BUY YOU CHAMPAGNE BUT YOU LOVE SOME HENNY
+FROM THE BLOCK LIKE YOU JENNY
+I KNOW YOU SPECIAL, GIRL, &#39;CAUSE I KNOW TOO MANY
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#replace girl with boy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">in_my_feelings</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;girl&#39;</span><span class="p">,</span> <span class="s1">&#39;boy&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Look, the new me is really still the real me
+I swear you gotta feel me before they try and kill me
+They gotta make some choices, they runnin&#39; out of options
+&#39;Cause I&#39;ve been goin&#39; off and they don&#39;t know when it&#39;s stoppin&#39;
+And when you get to toppin&#39;, I see that you&#39;ve been learnin&#39;
+And when you get to shoppin&#39;, you spend it like you earned it
+And when you popped off on your ex he deserved it
+I thought you were the one from the jump that confirmed it
+TrapMoneyBenny
+I buy you Champagne but you love some Henny
+From the block like you Jenny
+I know you special, boy, &#39;cause I know too many
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">in_my_feelings</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Champagne&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>480
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="slicing-strings">
+<h2>Slicing Strings<a class="headerlink" href="#slicing-strings" title="Permalink to this headline">¶</a></h2>
+<p>The last function to find the word “Champagne” returned the number 480.  This is the location of the word in the string.  We can slice a string to limit it to a certain range; may take some getting used to that we start counting at zero rather than 1.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_dance</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;That&#39;s why I need a one dance</span>
+<span class="s1">Got a Hennessy in my hand</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_dance</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;dance&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>24
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#start at letter 24 and go until 29</span>
+<span class="n">one_dance</span><span class="p">[</span><span class="mi">24</span><span class="p">:</span><span class="mi">29</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;dance&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="problem-drake">
+<h3>Problem: Drake<a class="headerlink" href="#problem-drake" title="Permalink to this headline">¶</a></h3>
+<center>
+    <img src = https://cdn.vox-cdn.com/thumbor/7SKoV9-tOn9XQXZIwwrZoDKU96A=/0x0:3200x1800/1200x800/filters:focal(1344x644:1856x1156)/cdn.vox-cdn.com/uploads/chorus_image/image/60257237/drake.0.png width = 50%/>
+    </center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gods_plan</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">Yeah, they wishin&#39; and wishin&#39; and wishin&#39; and wishin&#39;</span>
+<span class="s1">They wishin&#39; on me</span>
+
+<span class="s1">I been movin&#39; calm, don&#39;t start no trouble with me</span>
+<span class="s1">Tryna keep it peaceful is a struggle for me</span>
+<span class="s1">Don&#39;t pull up at 6 AM to cuddle with me</span>
+<span class="s1">You know how I like it when you lovin&#39; on me</span>
+<span class="s1">I don&#39;t wanna die for them to miss me</span>
+<span class="s1">Yes, I see the things that they wishin&#39; on me</span>
+<span class="s1">Hope I got some brothers that outlive me</span>
+<span class="s1">They gon&#39; tell the story, shit was different with me</span>
+
+<span class="s1">God&#39;s plan, God&#39;s plan</span>
+<span class="s1">I hold back, sometimes I won&#39;t (yeah)</span>
+<span class="s1">I feel good, sometimes I don&#39;t, ayy, don&#39;t</span>
+<span class="s1">I finessed down Weston Road, ayy, &#39;nessed</span>
+<span class="s1">Might go down a G.O.D., yeah, wait</span>
+<span class="s1">I go hard on Southside G, (yeah, wait)</span>
+<span class="s1">I make sure that north-side eat</span>
+
+<span class="s1">And still</span>
+<span class="s1">Bad things</span>
+<span class="s1">It&#39;s a lot of bad things</span>
+<span class="s1">That they wishin&#39; and wishin&#39; and wishin&#39; and wishin&#39;</span>
+<span class="s1">They wishin&#39; on me</span>
+<span class="s1">Bad things</span>
+<span class="s1">It&#39;s a lot of bad things</span>
+<span class="s1">That they wishin&#39; and wishin&#39; and wishin&#39; and wishin&#39;</span>
+<span class="s1">They wishin&#39; on me</span>
+<span class="s1">Yuh, ayy, ayy</span>
+
+<span class="s1">She said, &quot;Do you love me?&quot; I tell her, &quot;Only partly&quot;</span>
+<span class="s1">I only love my bed and my momma, I&#39;m sorry</span>
+<span class="s1">Fifty Dub, I even got it tatted on me</span>
+<span class="s1">81, they&#39;ll bring the crashers to the party</span>
+<span class="s1">And you know me</span>
+<span class="s1">Turn the O2 into the O3, dog</span>
+<span class="s1">Without 40, Oli, there would be no me</span>
+<span class="s1">Imagine if I never met the broskies</span>
+
+<span class="s1">God&#39;s plan, God&#39;s plan</span>
+<span class="s1">I can&#39;t do this on my own, ayy, no, ayy</span>
+<span class="s1">Someone watchin&#39; this shit close, yep, close</span>
+<span class="s1">I&#39;ve been me since Scarlett Road, ayy, road, ayy</span>
+<span class="s1">Might go down as G.O.D., yeah, wait</span>
+<span class="s1">I go hard on Southside G, ayy, wait</span>
+<span class="s1">I make sure that north-side eat</span>
+<span class="s1">And still</span>
+
+<span class="s1">Bad things</span>
+<span class="s1">It&#39;s a lot of bad things</span>
+<span class="s1">That they wishin&#39; and wishin&#39; and wishin&#39; and wishin&#39;</span>
+<span class="s1">They wishin&#39; on me</span>
+<span class="s1">Yeah, yeah</span>
+<span class="s1">Bad things</span>
+<span class="s1">It&#39;s a lot of bad things</span>
+<span class="s1">That they wishin&#39; and wishin&#39; and wishin&#39; and wishin&#39;</span>
+<span class="s1">They wishin&#39; on me</span>
+<span class="s1">Yeah</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>PROBLEMS</strong></p>
+<p>Using the variable <em>God’s Plan</em> above, please answer the following questions:</p>
+<ol class="simple">
+<li><p>How many characters in the string?  (<strong>Hint</strong>: look at its length!)</p></li>
+<li><p>Replace the word wishin with fishin.</p></li>
+<li><p>What happens if we use the <code class="docutils literal notranslate"><span class="pre">.split()</span></code> method on the string?</p></li>
+<li><p>Save the results of splitting the string to a variable called <code class="docutils literal notranslate"><span class="pre">tokens</span></code>.</p></li>
+<li><p>What kind of an object is <code class="docutils literal notranslate"><span class="pre">tokens</span></code>?  (<strong>Hint</strong>: use <code class="docutils literal notranslate"><span class="pre">type()</span></code>)</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="syllabus.html" title="previous page">Data  and Design with Python: LMTH 2080</a>
+    <a class='right-next' id="next-link" href="02_collections.html" title="next page">Collections</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

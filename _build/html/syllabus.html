@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Data and Design with Python: LMTH 2080 &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Intro to Python" href="01_dtypes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Data  and Design with Python: LMTH 2080
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_dtypes.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_collections.html">
+   Collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-control_flow.html">
+   Conditional Statements
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/syllabus.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jfkoehler/dadbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jfkoehler/dadbook/issues/new?title=Issue%20on%20page%20%2Fsyllabus.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jfkoehler/dadbook/master?urlpath=tree/syllabus.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jfkoehler/dadbook/blob/master/syllabus.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-requirements">
+   Course Requirements
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resources">
+     Resources
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-outcomes">
+     Learning Outcomes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attendance">
+     Attendance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#student-course-ratings">
+     Student Course Ratings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#schedule">
+     Schedule
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-and-design-with-python-lmth-2080">
+<h1>Data  and Design with Python: LMTH 2080<a class="headerlink" href="#data-and-design-with-python-lmth-2080" title="Permalink to this headline">¶</a></h1>
+<p><strong>INSTRUCTOR</strong>: Jacob Frias Koehler, PhD</p>
+<p><strong>LOCATION</strong>: 600 East 16th St</p>
+<p><strong>TIME</strong>: Monday 12:10 - 2:50 pm</p>
+<p><strong>WEBSITE</strong>: https://github.com/jfkoehler/data-and-design</p>
+<p><strong>SLACK CHANNEL</strong>: https://join.slack.com/t/newschool-vcz2981/shared_invite/zt-h00glhaq-Zn4FUwudYBOnVH561Q2P9Q</p>
+<p><strong>Email</strong>: koehlerj&#64;newschool.edu</p>
+<p>This course is an introduction to the Python computing language through an exploration of contemporary uses of data and computing technology.  We will combine work on understanding the political developments with the human use of data and engage with actual implementation of code and data analysis.</p>
+<div class="section" id="course-requirements">
+<h2>Course Requirements<a class="headerlink" href="#course-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Below are our course requirements and their contribution towards your final grade in the class.</p>
+<ul class="simple">
+<li><p>participate in class discussions on readings and computing work (20 %)</p></li>
+<li><p>contribute to slack each week (5 %)</p></li>
+<li><p>complete weekly assignments  (60%)</p></li>
+<li><p>complete final project (15%)</p></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="resources">
+<h3>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<p>The university provides many resources to help students achieve academic and artistic excellence.  These resources include:</p>
+<ul class="simple">
+<li><p>The University (and associated) Libraries: http://library.newschool.edu</p></li>
+<li><p>The University Learning Center: http://www.newschool.edu/learning-center</p></li>
+<li><p>University Disabilities Service: www.newschool.edu/student-disability-services/</p></li>
+</ul>
+<p>In keeping with the university’s policy of providing equal access for students with disabilities, any student with a disability who needs academic accommodations is welcome to meet with me privately. All conversations will be kept confidential. Students requesting any accommodations will also need to contact Student Disability Service (SDS). SDS will conduct an intake and, if appropriate, the Director will provide an academic accommodation notification letter for you to bring to me. At that point, I will review the letter with you and discuss these accommodations in relation to this course.</p>
+</div>
+<div class="section" id="learning-outcomes">
+<h3>Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Understand basic programming with the Python language</p></li>
+<li><p>Use Python to explore and visualize data</p></li>
+<li><p>Use Python to build web applications</p></li>
+<li><p>Use Python to implement basic Machine Learning Algorithms</p></li>
+<li><p>Use Python to implement basic Artificial Neural Networks</p></li>
+</ul>
+</div>
+<div class="section" id="attendance">
+<h3>Attendance<a class="headerlink" href="#attendance" title="Permalink to this headline">¶</a></h3>
+<p><em>“Absences may justify some grade reduction and a total of four absences mandate a reduction of one letter grade for the course. More than four absences mandate a failing grade for the course, unless there are extenuating circumstances, such as the following:
+an extended illness requiring hospitalization or visit to a physician (with documentation); a family emergency, e.g. serious illness (with written explanation); observance of a religious holiday.</em></p>
+<p><em>The attendance and lateness policies are enforced as of the first day of classes for all registered students. If registered during the first week of the add/drop period, the student is responsible for any missed assignments and coursework.</em></p>
+<p><em>For significant lateness, the instructor may consider the tardiness as an absence for the day. Students failing a course due to attendance should consult with an academic advisor to discuss options. Divisional and/or departmental/program policies serve as minimal guidelines, but policies may contain additional elements determined by the faculty member.”</em></p>
+</div>
+<div class="section" id="student-course-ratings">
+<h3>Student Course Ratings<a class="headerlink" href="#student-course-ratings" title="Permalink to this headline">¶</a></h3>
+<p>During the last two weeks of the semester, students are asked to provide feedback for each of their courses through an online survey. They cannot view grades until providing feedback or officially declining to do so. Course evaluations are a vital space where students can speak about the learning experience. It is an important process which provides valuable data about the successful delivery and support of a course or topic to both the faculty and administrators. Instructors rely on course rating surveys for feedback on the course and teaching methods, so they can understand what aspects of the class are most successful in teaching students, and what aspects might be improved or changed in future. Without this information, it can be difficult for an instructor to reflect upon and improve teaching methods and course design. In addition, program/department chairs and other administrators review course surveys. Instructions are available online at http://www.newschool.edu/provost/course-evaluations-student-instructions.pdf.</p>
+</div>
+<div class="section" id="schedule">
+<h3>Schedule<a class="headerlink" href="#schedule" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Week</p></th>
+<th class="head"><p>Topic</p></th>
+<th class="head"><p>Activity</p></th>
+<th class="head"><p>Assignment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Introduction to Python</p></td>
+<td><p>Data Types, Collections, Control Flow</p></td>
+<td><p>Code Problems</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Introduction to Pandas</p></td>
+<td><p>EDA With Police Data</p></td>
+<td><p>Chipotle and IMDB Data</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Plotting and  Visualization</p></td>
+<td><p>Matplotlib and Seaborn</p></td>
+<td><p>Plotting with Matplotlib</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Data Project</p></td>
+<td><p>Mapping</p></td>
+<td><p>Project Completion</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Intro to Machine Learning</p></td>
+<td><p>Regression and Classification with <code class="docutils literal notranslate"><span class="pre">sklearn</span></code></p></td>
+<td><p>Regression and Classification problems</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Artificial Neural Networks</p></td>
+<td><p>ANN’s and Regression</p></td>
+<td><p>Regression and Classification II</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Natural Language Processing</p></td>
+<td><p>Sklearn and Text</p></td>
+<td><p>Keras and Text</p></td>
+</tr>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Image Analysis</p></td>
+<td><p>Object Detection and Convolutional Neural Nets</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Image Generation</p></td>
+<td><p>Deep Dream</p></td>
+<td><p>Generating Images</p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>HTML and CSS</p></td>
+<td><p>Basic Website</p></td>
+<td><p>Website Completion</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Flask</p></td>
+<td><p>Templates</p></td>
+<td><p>Multiple Pages</p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>Forms and API</p></td>
+<td><p>Forms</p></td>
+<td><p>Designing your Application</p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Final Meetings</p></td>
+<td><p>Final Site</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="01_dtypes.html" title="next page">Intro to Python</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

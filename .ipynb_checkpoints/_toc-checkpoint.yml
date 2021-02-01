@@ -1,5 +1,7 @@
-file: markdown
+file: syllabus
 sections:
-- file: content
-- file: intro
-- file: notebooks
+- file: 01_dtypes
+- file: 02_collections
+- file: 03-control_flow
+
+
