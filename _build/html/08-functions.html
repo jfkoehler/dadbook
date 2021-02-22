@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Make a Map" href="folium_exs.html" />
+    <link rel="prev" title="Conditional Statements" href="03-control_flow.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="syllabus.html">
+   Data  and Design with Python: LMTH 2080
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_dtypes.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_collections.html">
+   Collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-control_flow.html">
+   Conditional Statements
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="folium_exs.html">
+   Make a Map
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="folium_exs.html#covid-map">
+   COVID Map
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="folium_exs.html#make-a-heatmap">
+   Make a Heatmap
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/08-functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jfkoehler/dadbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jfkoehler/dadbook/issues/new?title=Issue%20on%20page%20%2F08-functions.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jfkoehler/dadbook/master?urlpath=tree/08-functions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jfkoehler/dadbook/blob/master/08-functions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lesson-objectives">
+   Lesson objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-basic-function">
+   Activity: Basic function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#activity-function-parameters">
+   Activity: Function parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#named-parameters-vs-ordered-parameters">
+   Named parameters vs Ordered parameters
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#returning-values-from-a-function">
+   Returning values from a function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lambda-functions">
+   Lambda functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-dna-to-rna">
+   Challenge: DNA to RNA
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-hamming-distance">
+   Challenge: Hamming Distance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge-find-the-divisors">
+   Challenge: Find the divisors
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="lesson-objectives">
+<h2>Lesson objectives<a class="headerlink" href="#lesson-objectives" title="Permalink to this headline">¶</a></h2>
+<p>By the end of this lesson, you should be able to:</p>
+<ol class="simple">
+<li><p>Successfully <strong>create</strong> and <strong>invoke</strong> a function</p></li>
+<li><p>Understand how to use parameters in a function</p></li>
+<li><p>Understand how to return a value from a function</p></li>
+<li><p>Know what a lambda function is and how to create one</p></li>
+</ol>
+</div>
+<div class="section" id="activity-basic-function">
+<h2>Activity: Basic function<a class="headerlink" href="#activity-basic-function" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Create a function in cell below called <code class="docutils literal notranslate"><span class="pre">greeting</span></code> that prints <code class="docutils literal notranslate"><span class="pre">&quot;Howdy&quot;</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare the function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Invoke the function</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="activity-function-parameters">
+<h2>Activity: Function parameters<a class="headerlink" href="#activity-function-parameters" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>In the <a class="reference external" href="https://www.kaggle.com/c/titanic/data">Kaggle Titanic competition</a>, the names of everyone in the manifest look like this:</p>
+<blockquote>
+<div><p>Last, Title. First</p>
+</div></blockquote>
+<p>Create a function called <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> that accepts 3 parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">first_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></li>
+</ul>
+<p>And prints the full name in the format above.</p>
+</div>
+<div class="section" id="named-parameters-vs-ordered-parameters">
+<h2>Named parameters vs Ordered parameters<a class="headerlink" href="#named-parameters-vs-ordered-parameters" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>In the above example, you must order in which you add your arguments coincides with the order of the parameters in the function declaration. If you called them out of order like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic_name</span><span class="p">(</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="s1">&#39;Captain&#39;</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then the following would happen:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'Doe'</span></code> would be assigned to <code class="docutils literal notranslate"><span class="pre">first_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'Captain'</span></code> would be assigned to <code class="docutils literal notranslate"><span class="pre">last_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'John'</span></code> would be assigned to <code class="docutils literal notranslate"><span class="pre">title</span></code>.</p></li>
+</ol>
+<p>As a result, the function would print <code class="docutils literal notranslate"><span class="pre">'Captain,</span> <span class="pre">John.</span> <span class="pre">Doe'</span></code>. No bueno.</p>
+<p>You can get around this by referencing the parameters by name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic_name</span><span class="p">(</span><span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Captain&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Notice the order is the same as our bug: <code class="docutils literal notranslate"><span class="pre">('Doe',</span> <span class="pre">'Captain',</span> <span class="pre">'John')</span></code>. Only now the function will work properly.</p>
+<p>To summarize, ordering your parameters matters <strong>unless you reference the parameters by name</strong>.</p>
+</div>
+<div class="section" id="returning-values-from-a-function">
+<h2>Returning values from a function<a class="headerlink" href="#returning-values-from-a-function" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Let’s say we want to use the result from our <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> function elsewhere in our code. To do this, we’ll set a variable like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">formatted_name</span> <span class="o">=</span> <span class="n">titanic_name</span><span class="p">(</span><span class="n">last_name</span><span class="o">=</span><span class="s1">&#39;Doe&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Captain&#39;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s1">&#39;John&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We’d expect <code class="docutils literal notranslate"><span class="pre">formatted_name</span></code> to be <code class="docutils literal notranslate"><span class="pre">'Doe,</span> <span class="pre">Captain.</span> <span class="pre">John'</span></code>, but that’s not the case. When we output <code class="docutils literal notranslate"><span class="pre">formatted_name</span></code> in a cell, we see that nothing shows up. This is because our function <strong>prints</strong> the name <code class="docutils literal notranslate"><span class="pre">'Doe,</span> <span class="pre">Captain.</span> <span class="pre">John'</span></code>, but nothing gets returned.</p>
+<p><strong>Remember</strong> printing is merely for you the developer to debug your code. In order to use result from <code class="docutils literal notranslate"><span class="pre">titanic_name</span></code> elsewhere in our code, we need to explicitly return it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">titanic_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s1">. </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lambda-functions">
+<h2>Lambda functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p><a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#lambda-expressions">Lambda functions</a> allow us to create an anonymous function on the fly. We’ll use them extensively when we learn about <code class="docutils literal notranslate"><span class="pre">pandas</span></code> next week.</p>
+<p>Here’s a simple named function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;Howdy, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>And here is its <code class="docutils literal notranslate"><span class="pre">lambda</span></code> equivalent:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">name</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;Howdy, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>The primary differences between named and lambda functions are:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions don’t have a name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions are written on one line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lambda</span></code> functions don’t require a <code class="docutils literal notranslate"><span class="pre">return</span></code>. It’s implied that the <code class="docutils literal notranslate"><span class="pre">lambda</span></code> function above will return <code class="docutils literal notranslate"><span class="pre">&quot;Howdy,</span> <span class="pre">NAME&quot;</span></code></p></li>
+</ol>
+</div>
+<div class="section" id="challenge-dna-to-rna">
+<h2>Challenge: DNA to RNA<a class="headerlink" href="#challenge-dna-to-rna" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>If you’ve taken a Biology class, you know that DNA is essentially a long string comprised of 4 nucleotides:</p>
+<ul class="simple">
+<li><p>Cytosine (C)</p></li>
+<li><p>Thymine (T)</p></li>
+<li><p>Adenine (A)</p></li>
+<li><p>Guanine (G)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dna</span> <span class="o">=</span> <span class="s1">&#39;ACGTAAAACGTGGTGGATTTGACGTGTTTG&#39;</span>
+</pre></div>
+</div>
+<p>RNA is similar to DNA with one exception: all instances of Thymine (T) are replaced with Uracil (U). Our DNA from above would look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rna</span> <span class="o">=</span> <span class="s1">&#39;ACGUAAAACGUGGUGGAUUUGACGUGUUUG&#39;</span>
+</pre></div>
+</div>
+<p>In the cell below, create a function called <code class="docutils literal notranslate"><span class="pre">dna_to_rna</span></code> that accepts a string of DNA and converts it to RNA.</p>
+</div>
+<div class="section" id="challenge-hamming-distance">
+<h2>Challenge: Hamming Distance<a class="headerlink" href="#challenge-hamming-distance" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>The DNA strand <code class="docutils literal notranslate"><span class="pre">'AAAA'</span></code> is similar to the strand <code class="docutils literal notranslate"><span class="pre">'AAAT'</span></code> with one exception: the 4th nucleotide is different. In other words, the two strands have a <strong>hamming distance</strong> of 1, where hamming distance is the number of nucleotides that differ between two strands.</p>
+<p>In the cell below, create a function called <code class="docutils literal notranslate"><span class="pre">hamming_distance</span></code> that accepts two parameters (<code class="docutils literal notranslate"><span class="pre">dna1</span></code> and <code class="docutils literal notranslate"><span class="pre">dna2</span></code>) and calculates the hamming distance between the two strands.</p>
+<p><strong>NOTE:</strong> You can assume the two strands will have the same length.</p>
+</div>
+<div class="section" id="challenge-find-the-divisors">
+<h2>Challenge: Find the divisors<a class="headerlink" href="#challenge-find-the-divisors" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>From <a class="reference external" href="https://www.codewars.com/kata/find-the-divisors/train/python">codewars</a>. Create a function called <code class="docutils literal notranslate"><span class="pre">divisors</span></code> that accepts a number and returns a list of all the divisors for that number.</p>
+<p>For example: <code class="docutils literal notranslate"><span class="pre">divisors(12)</span></code> will return the list <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">6]</span></code>.</p>
+<p><strong>Note</strong>: 1 doesn’t count as a divisor.
+<strong>Note</strong>: If the number doesn’t have any divisors, it is prime (e.g. 13, 23, etc). In cases where the number is prime, simply return the string <code class="docutils literal notranslate"><span class="pre">'13</span> <span class="pre">is</span> <span class="pre">prime'</span></code>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="03-control_flow.html" title="previous page">Conditional Statements</a>
+    <a class='right-next' id="next-link" href="folium_exs.html" title="next page">Make a Map</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

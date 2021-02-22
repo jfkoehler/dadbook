@@ -1,0 +1,852 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maps with folium &#8212; My sample book</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">My sample book</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="syllabus.html">
+   Data  and Design with Python: LMTH 2080
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_dtypes.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02_collections.html">
+   Collections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-control_flow.html">
+   Conditional Statements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-functions.html">
+   Functions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="folium_exs.html">
+   Make a Map
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="folium_exs.html#covid-map">
+   COVID Map
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="folium_exs.html#make-a-heatmap">
+   Make a Heatmap
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/09_folium_intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jfkoehler/dadbook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jfkoehler/dadbook/issues/new?title=Issue%20on%20page%20%2F09_folium_intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jfkoehler/dadbook/master?urlpath=tree/09_folium_intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jfkoehler/dadbook/blob/master/09_folium_intro.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Maps with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     folium
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-markers">
+   Adding Markers
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-many-markers">
+   Adding Many Markers
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#policing-map">
+   Policing Map
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heat-map">
+   Heat Map
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-earthquakes-in-japan">
+   Example: Earthquakes in Japan
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install folium</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="maps-with-folium">
+<h1>Maps with <code class="docutils literal notranslate"><span class="pre">folium</span></code><a class="headerlink" href="#maps-with-folium" title="Permalink to this headline">¶</a></h1>
+<p>Making a map:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#make map</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Typically, we want to center the map at a given latitude and longitude pair so we include the <code class="docutils literal notranslate"><span class="pre">location</span></code> argument with a specific latitude and longitude.  Often, we get this information from a dataset, so let’s load in a dataset that describes some community garden locations in New York City.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read in the data</span>
+<span class="n">gardens</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s1">&#39;https://data.cityofnewyork.us/resource/ajxm-kzmj.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#note the latitude and longitude columns</span>
+<span class="n">gardens</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 536 entries, 0 to 535
+Data columns (total 17 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   propid            536 non-null    object 
+ 1   boro              536 non-null    object 
+ 2   community_board   536 non-null    object 
+ 3   council_district  495 non-null    float64
+ 4   garden_name       536 non-null    object 
+ 5   address           535 non-null    object 
+ 6   size              536 non-null    object 
+ 7   jurisdiction      536 non-null    object 
+ 8   neighborhoodname  323 non-null    object 
+ 9   cross_streets     464 non-null    object 
+ 10  latitude          429 non-null    float64
+ 11  longitude         429 non-null    float64
+ 12  postcode          431 non-null    object 
+ 13  census_tract      429 non-null    float64
+ 14  bin               431 non-null    object 
+ 15  bbl               431 non-null    object 
+ 16  nta               431 non-null    object 
+dtypes: float64(4), object(13)
+memory usage: 71.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#take a peek</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#grab first latitude, longitude pair</span>
+
+<span class="c1">#create map centered at this latitude and longitude</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#display the map</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="adding-markers">
+<h1>Adding Markers<a class="headerlink" href="#adding-markers" title="Permalink to this headline">¶</a></h1>
+<p>There are a few variations of markers that we can add to the map, but they mostly function the same way.  We say a point where we want the marker drawn, define any kind of popup, and add the marker to our map.</p>
+</div>
+<div class="section" id="adding-many-markers">
+<h1>Adding Many Markers<a class="headerlink" href="#adding-many-markers" title="Permalink to this headline">¶</a></h1>
+<p>One approach to add markers for all the gardens would be to iterate over the rows of the data, grab each latitude and longitude pair, and add a marker there with any additional information we need.  We can use the <code class="docutils literal notranslate"><span class="pre">.iterrows()</span></code> function from pandas to do so.  Here, we have both the row name and the data from the rows accessible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#.iterrows()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="policing-map">
+<h1>Policing Map<a class="headerlink" href="#policing-map" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/sf_police.zip&#39;</span><span class="p">,</span> <span class="n">compression</span> <span class="o">=</span> <span class="s1">&#39;zip&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>IncidntNum</th>
+      <th>Category</th>
+      <th>Descript</th>
+      <th>DayOfWeek</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>PdDistrict</th>
+      <th>Resolution</th>
+      <th>Address</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Location</th>
+      <th>PdId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>120058272</td>
+      <td>WEAPON LAWS</td>
+      <td>POSS OF PROHIBITED WEAPON</td>
+      <td>Friday</td>
+      <td>01/29/2016 12:00:00 AM</td>
+      <td>11:00</td>
+      <td>SOUTHERN</td>
+      <td>ARREST, BOOKED</td>
+      <td>800 Block of BRYANT ST</td>
+      <td>-122.403405</td>
+      <td>37.775421</td>
+      <td>(37.775420706711, -122.403404791479)</td>
+      <td>12005827212120</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>120058272</td>
+      <td>WEAPON LAWS</td>
+      <td>FIREARM, LOADED, IN VEHICLE, POSSESSION OR USE</td>
+      <td>Friday</td>
+      <td>01/29/2016 12:00:00 AM</td>
+      <td>11:00</td>
+      <td>SOUTHERN</td>
+      <td>ARREST, BOOKED</td>
+      <td>800 Block of BRYANT ST</td>
+      <td>-122.403405</td>
+      <td>37.775421</td>
+      <td>(37.775420706711, -122.403404791479)</td>
+      <td>12005827212168</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>141059263</td>
+      <td>WARRANTS</td>
+      <td>WARRANT ARREST</td>
+      <td>Monday</td>
+      <td>04/25/2016 12:00:00 AM</td>
+      <td>14:59</td>
+      <td>BAYVIEW</td>
+      <td>ARREST, BOOKED</td>
+      <td>KEITH ST / SHAFTER AV</td>
+      <td>-122.388856</td>
+      <td>37.729981</td>
+      <td>(37.7299809672996, -122.388856204292)</td>
+      <td>14105926363010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>160013662</td>
+      <td>NON-CRIMINAL</td>
+      <td>LOST PROPERTY</td>
+      <td>Tuesday</td>
+      <td>01/05/2016 12:00:00 AM</td>
+      <td>23:50</td>
+      <td>TENDERLOIN</td>
+      <td>NONE</td>
+      <td>JONES ST / OFARRELL ST</td>
+      <td>-122.412971</td>
+      <td>37.785788</td>
+      <td>(37.7857883766888, -122.412970537591)</td>
+      <td>16001366271000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>160002740</td>
+      <td>NON-CRIMINAL</td>
+      <td>LOST PROPERTY</td>
+      <td>Friday</td>
+      <td>01/01/2016 12:00:00 AM</td>
+      <td>00:30</td>
+      <td>MISSION</td>
+      <td>NONE</td>
+      <td>16TH ST / MISSION ST</td>
+      <td>-122.419672</td>
+      <td>37.765050</td>
+      <td>(37.7650501214668, -122.419671780296)</td>
+      <td>16000274071000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#what kinds of crimes are there</span>
+<span class="n">c</span><span class="p">[</span><span class="s1">&#39;Category&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TREA                               3
+PORNOGRAPHY/OBSCENE MAT            4
+GAMBLING                          20
+BAD CHECKS                        34
+SEX OFFENSES, NON FORCIBLE        40
+LOITERING                         42
+FAMILY OFFENSES                   53
+EXTORTION                         60
+BRIBERY                           66
+SUICIDE                           69
+RUNAWAY                          140
+LIQUOR LAWS                      156
+EMBEZZLEMENT                     168
+KIDNAPPING                       257
+ARSON                            286
+DRIVING UNDER THE INFLUENCE      378
+DRUNKENNESS                      465
+FORGERY/COUNTERFEITING           619
+PROSTITUTION                     641
+DISORDERLY CONDUCT               658
+RECOVERED VEHICLE                736
+STOLEN PROPERTY                  882
+SEX OFFENSES, FORCIBLE           940
+WEAPON LAWS                     1658
+TRESPASS                        1812
+SECONDARY CODES                 1841
+FRAUD                           2635
+ROBBERY                         3299
+DRUG/NARCOTIC                   4243
+MISSING PERSON                  4338
+SUSPICIOUS OCC                  5782
+BURGLARY                        5802
+WARRANTS                        5914
+VEHICLE THEFT                   6419
+VANDALISM                       8589
+ASSAULT                        13577
+NON-CRIMINAL                   17866
+OTHER OFFENSES                 19599
+LARCENY/THEFT                  40409
+Name: Category, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#limit the data to a given crime</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="heat-map">
+<h1>Heat Map<a class="headerlink" href="#heat-map" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">HeatMap</span><span class="p">,</span> <span class="n">MarkerCluster</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-earthquakes-in-japan">
+<h1>Example: Earthquakes in Japan<a class="headerlink" href="#example-earthquakes-in-japan" title="Permalink to this headline">¶</a></h1>
+<p>Make a map of the earthquakes in Japan with magnitude greater than 6.5.  Include information about the earthquake in a popup marker.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">japan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/japan_earthquakes.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">japan</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>depth</th>
+      <th>mag</th>
+      <th>magType</th>
+      <th>nst</th>
+      <th>gap</th>
+      <th>dmin</th>
+      <th>rms</th>
+      <th>...</th>
+      <th>updated</th>
+      <th>place</th>
+      <th>type</th>
+      <th>horizontalError</th>
+      <th>depthError</th>
+      <th>magError</th>
+      <th>magNst</th>
+      <th>status</th>
+      <th>locationSource</th>
+      <th>magSource</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2018-11-27T14:34:20.900Z</td>
+      <td>48.3780</td>
+      <td>154.9620</td>
+      <td>35.00</td>
+      <td>4.9</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>92.0</td>
+      <td>5.044</td>
+      <td>0.63</td>
+      <td>...</td>
+      <td>2018-11-27T16:06:33.040Z</td>
+      <td>269km SSW of Severo-Kuril'sk, Russia</td>
+      <td>earthquake</td>
+      <td>7.6</td>
+      <td>1.7</td>
+      <td>0.036</td>
+      <td>248.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2018-11-26T23:33:50.630Z</td>
+      <td>36.0733</td>
+      <td>139.7830</td>
+      <td>48.82</td>
+      <td>4.8</td>
+      <td>mww</td>
+      <td>NaN</td>
+      <td>113.0</td>
+      <td>1.359</td>
+      <td>1.13</td>
+      <td>...</td>
+      <td>2018-11-27T16:44:22.223Z</td>
+      <td>3km SSW of Sakai, Japan</td>
+      <td>earthquake</td>
+      <td>6.0</td>
+      <td>6.1</td>
+      <td>0.071</td>
+      <td>19.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2018-11-26T13:04:02.250Z</td>
+      <td>38.8576</td>
+      <td>141.8384</td>
+      <td>50.56</td>
+      <td>4.5</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>145.0</td>
+      <td>1.286</td>
+      <td>0.84</td>
+      <td>...</td>
+      <td>2018-11-26T23:52:21.074Z</td>
+      <td>26km SSE of Ofunato, Japan</td>
+      <td>earthquake</td>
+      <td>8.4</td>
+      <td>9.5</td>
+      <td>0.156</td>
+      <td>12.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2018-11-26T05:20:16.440Z</td>
+      <td>50.0727</td>
+      <td>156.1420</td>
+      <td>66.34</td>
+      <td>4.6</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>128.0</td>
+      <td>3.191</td>
+      <td>0.62</td>
+      <td>...</td>
+      <td>2018-11-26T08:13:58.040Z</td>
+      <td>67km S of Severo-Kuril'sk, Russia</td>
+      <td>earthquake</td>
+      <td>9.7</td>
+      <td>7.8</td>
+      <td>0.045</td>
+      <td>151.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2018-11-25T09:19:05.010Z</td>
+      <td>33.9500</td>
+      <td>134.4942</td>
+      <td>38.19</td>
+      <td>4.6</td>
+      <td>mb</td>
+      <td>NaN</td>
+      <td>104.0</td>
+      <td>0.558</td>
+      <td>0.61</td>
+      <td>...</td>
+      <td>2018-11-25T23:24:52.615Z</td>
+      <td>9km SW of Komatsushima, Japan</td>
+      <td>earthquake</td>
+      <td>3.4</td>
+      <td>10.1</td>
+      <td>0.132</td>
+      <td>17.0</td>
+      <td>reviewed</td>
+      <td>us</td>
+      <td>us</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 22 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">japan</span><span class="p">[</span><span class="s1">&#39;mag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/09_folium_intro_44_1.png" src="_images/09_folium_intro_44_1.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book Community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -3,5 +3,7 @@ sections:
 - file: 01_dtypes
 - file: 02_collections
 - file: 03-control_flow
+- file: 08-functions
+- file: folium_exs
 
 
